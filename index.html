@@ -165,6 +165,110 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/31/flutter-setup/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Ruibo Qian">
+      <meta itemprop="description" content="Hello World">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ruibo Qian's Notes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/31/flutter-setup/" class="post-title-link" itemprop="url">在macOS上搭建Flutter开发环境</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-03-31 15:27:38 / 修改时间：19:47:02" itemprop="dateCreated datePublished" datetime="2021-03-31T15:27:38+08:00">2021-03-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Flutter/" itemprop="url" rel="index"><span itemprop="name">Flutter</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="获取Flutter-SDK"><a href="#获取Flutter-SDK" class="headerlink" title="获取Flutter SDK"></a>获取Flutter SDK</h2><ol>
+<li><p>去flutter官网下载其最新可用的安装包，<a target="_blank" rel="noopener" href="https://flutter.dev/docs/development/tools/sdk/releases?tab=macos#macos">转到下载页</a> 。</p>
+</li>
+<li><p>双击进行解压，把解压后的文件夹 <code>flutter</code> 拖到电脑用户名文件夹下。<br><img src="/images/flutter/%E4%BF%AE%E6%94%B9flutter%E7%9B%AE%E5%BD%95.png" alt="修改flutter目录"></p>
+</li>
+</ol>
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><ol>
+<li><p>在终端输入下面命令并回车</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~&#x2F;.bash_profile</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加下面命令行（<strong>注意：第三行中的 <code>qianruibo</code> 修改为你自己电脑的用户名</strong>）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export PUB_HOSTED_URL&#x3D;https:&#x2F;&#x2F;pub.flutter-io.cn</span><br><span class="line"></span><br><span class="line">export FLUTTER_STORAGE_BASE_URL&#x3D;https:&#x2F;&#x2F;storage.flutter-io.cn</span><br><span class="line"></span><br><span class="line">export PATH&#x3D;&#x2F;Users&#x2F;qianruibo&#x2F;flutter&#x2F;bin:$PATH</span><br></pre></td></tr></table></figure>
+<p><img src="/images/flutter/%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.png" alt="配置环境变量"></p>
+</li>
+<li><p>输入 <code>:wq</code> ，保存环境变量文件</p>
+</li>
+<li><p>关闭并重新打开终端，输入下面命令并回车</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~&#x2F;.bash_profile</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="运行-flutter-doctor"><a href="#运行-flutter-doctor" class="headerlink" title="运行 flutter doctor"></a>运行 flutter doctor</h2><p>运行以下命令查看是否需要安装其它依赖项来完成安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter doctor</span><br></pre></td></tr></table></figure>
+<p><img src="/images/flutter/doctor.png" alt="flutter doctor"></p>
+<h2 id="创建Flutter项目"><a href="#创建Flutter项目" class="headerlink" title="创建Flutter项目"></a>创建Flutter项目</h2><p>进入你想存放项目的目录下，运行下面命令行进行创建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter create flutterapp</span><br></pre></td></tr></table></figure>
+<p>其中 <code>flutterapp</code> 是你的项目名称，不能使用大写。<br><img src="/images/flutter/creat.png" alt="flutter creat"></p>
+<h2 id="运行Flutter项目"><a href="#运行Flutter项目" class="headerlink" title="运行Flutter项目"></a>运行Flutter项目</h2><p>有两种方式运行项目：命令行和Xcode运行</p>
+<ol>
+<li><p>命令行运行<br>将真机连到电脑，进入 <code>flutter</code> 项目文件，然后执行命令行 <code>flutter run</code> 。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd flutterapp</span><br><span class="line">flutter run</span><br></pre></td></tr></table></figure>
+<p><img src="/images/flutter/run.png" alt="flutter run"></p>
+</li>
+<li><p>Xcode运行<br>也可以直接进入项目中的 <code>ios</code> 文件夹，打开 <code>Runner.xcworkspace</code> ，再运行项目。<br><img src="/images/flutter/Xcode.png" alt="Xcode运行"></p>
+</li>
+</ol>
+<h2 id="界面展示"><a href="#界面展示" class="headerlink" title="界面展示"></a>界面展示</h2><p><img src="/images/flutter/demo.png" alt="界面展示"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/12/theme-next-more/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -280,7 +384,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-31 15:15:37" itemprop="dateModified" datetime="2021-03-31T15:15:37+08:00">2021-03-31</time>
+                <time title="修改时间：2021-03-31 15:28:30" itemprop="dateModified" datetime="2021-03-31T15:28:30+08:00">2021-03-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -480,20 +584,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
